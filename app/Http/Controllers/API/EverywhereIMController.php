@@ -10,6 +10,8 @@ use App\Models\User;
 use App\Models\Color;
 use App\Models\Ccode;
 use \Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\DB;
+
 
 class EverywhereIMController extends Controller
 {
@@ -20,7 +22,9 @@ class EverywhereIMController extends Controller
      */
     public function index()
     {
-        //
+        $users = DB::table('users')->get();
+
+        return response()->json($users,200);
     }
 
     /**
@@ -70,6 +74,9 @@ class EverywhereIMController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::get()->last()->delete();
+
+        return 'last created user deleted';
+
     }
 }
