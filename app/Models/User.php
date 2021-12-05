@@ -50,6 +50,6 @@ class User extends Authenticatable
      */
 
     public function colors(){
-        return $this->belongsToMany(Color::class);
+        return $this->belongsToMany(Color::class)->withTimestamps();
     }
 }
