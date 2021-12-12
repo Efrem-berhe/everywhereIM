@@ -33,6 +33,18 @@ export class EverywhereIMMService {
 
   }
 
+  Delete(){
+    console.log('delete function from everywhere I am is called');
+    const options = {
+      url: 'http://localhost:8000/api/Everywhereiam/1',
+      headers: { 'Content-Type': 'application/json'}
+   };
+   this.route.navigate(['']);
+    return Http.del(options);
+
+
+  }
+
 
  
 }
