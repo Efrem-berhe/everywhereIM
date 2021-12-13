@@ -51,7 +51,15 @@ class EverywhereIMController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::get()->last();
+        $user_colors = $user->colors()->get();
+        $user_data = array(
+            'user' => $user,
+            'user_color' => $user_colors
+        );
+
+
+        return response()->json($user_data,200);
     }
 
     /**
@@ -63,7 +71,11 @@ class EverywhereIMController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $color = Color::inRandomOrder()->first();
+        $user = User::get()->last();
+        $user->colors()->attach($color);
+        $user_colors = $user->colors()->get();
+        return response()->json($user_colors,200);
     }
 
     /**

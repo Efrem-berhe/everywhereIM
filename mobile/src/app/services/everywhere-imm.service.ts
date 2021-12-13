@@ -4,10 +4,16 @@ import { Http, HttpResponse } from '@capacitor-community/http';
 import { NavController } from '@ionic/angular';
 
 
-export interface EverywhereIMM {
-  id?: number;
-  titile: string;
-  completed: boolean;
+export interface UserColor {
+  user_id?: number;
+  color: string;
+  color_code: string;
+}
+
+export class UserColorService {
+
+  private resourceUri = 'http://localhost:8000/api/Everywhereiam';
+  constructor() {}
 }
 
 @Injectable({
@@ -33,6 +39,15 @@ export class EverywhereIMMService {
 
   }
 
+  CollectUserColor(): Promise<HttpResponse> {
+    const options = {
+      url: 'http://localhost:8000/api/Everywhereiam/1',
+      headers: { 'Content-Type': 'application/json'}
+    }
+    console.log('user colors has been featched');
+    return Http.get(options);
+  }
+
   Delete(){
     console.log('delete function from everywhere I am is called');
     const options = {
@@ -44,7 +59,6 @@ export class EverywhereIMMService {
 
 
   }
-
 
  
 }
