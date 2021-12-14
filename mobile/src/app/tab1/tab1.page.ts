@@ -20,12 +20,14 @@ export class Tab1Page implements OnInit{
     
     console.log('ChildComponent:OnInit');
     
-    console.log(this.everywhereIM.CollectUserColor().then((res) =>{
-
-      console.log(this.userColors$ = res.data);
-    } )
-    );
+    this.everywhereIM.CollectUserColor().then((res) =>{
+      //this.dataArray = res.data;
+      this.userColors$ = res.data;
+      //console.log(this.userColors$ = res.data);
+    });
   }
+
+
 }
 
 

@@ -5,7 +5,7 @@ import { NavController } from '@ionic/angular';
 
 
 export interface UserColor {
-  user_id?: number;
+  id?: number;
   color: string;
   color_code: string;
 }
@@ -45,7 +45,7 @@ export class EverywhereIMMService {
       headers: { 'Content-Type': 'application/json'}
     }
     console.log('user colors has been featched');
-    return Http.get(options);
+    return Http.put(options);
   }
 
   Delete(){
