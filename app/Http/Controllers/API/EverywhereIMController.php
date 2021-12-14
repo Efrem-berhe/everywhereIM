@@ -22,9 +22,20 @@ class EverywhereIMController extends Controller
      */
     public function index()
     {
-        $users = DB::table('users')->get();
+        $users = User::get();
+        $users_and_colors = [];
 
-        return response()->json($users,200);
+       foreach($users as $key => $user){
+            //$user = $user;
+            //$user_colors = $user->colors->get();
+            $users_colors = array(
+                        'user' => $user,
+                        'user_color' => $user->colors()->get(),
+                    );
+            array_push($users_and_colors, $users_colors);
+       }
+
+        return response()->json($users_and_colors,200);
     }
 
     /**

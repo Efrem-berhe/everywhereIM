@@ -10,6 +10,16 @@ export interface UserColor {
   color_code: string;
 }
 
+export interface Users{
+  id?: number;
+  name: string;
+}
+
+export interface Colors{
+  name: string;
+  color_code: string;
+}
+
 export class UserColorService {
 
   private resourceUri = 'http://localhost:8000/api/Everywhereiam';
@@ -47,6 +57,16 @@ export class EverywhereIMMService {
     console.log('user colors has been featched');
     return Http.put(options);
   }
+
+  findAll(): Promise<HttpResponse>{
+    const options = {
+      url: 'http://localhost:8000/api/Everywhereiam/',
+      headers: { 'Content-Type': 'application/json'}
+    }
+    console.log('users are featched');
+    return Http.get(options);
+  }
+
 
   Delete(){
     console.log('delete function from everywhere I am is called');

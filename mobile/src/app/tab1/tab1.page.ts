@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonRefresher } from '@ionic/angular';
-import { EverywhereIMMService, UserColor, UserColorService} from 'src/app/services/everywhere-imm.service';
+import { EverywhereIMMService, UserColor} from 'src/app/services/everywhere-imm.service';
 
 @Component({
   selector: 'app-tab1',
