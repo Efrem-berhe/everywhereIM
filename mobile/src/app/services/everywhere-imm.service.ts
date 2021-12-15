@@ -15,7 +15,7 @@ export interface Users{
   name: string;
 }
 
-export interface Colors{
+export interface Color{
   name: string;
   color_code: string;
 }
@@ -33,7 +33,8 @@ export class EverywhereIMMService {
 
   private resourceUri = 'http://localhost:8000/api/Everywhereiam';
 
-  constructor(public route: Router) { }
+  constructor(public route: Router,) { 
+  }
 
 
   
@@ -49,8 +50,10 @@ export class EverywhereIMMService {
 
   }
 
-  CollectUserColor(): Promise<HttpResponse> {
+  CollectUserColor(id?: number): Promise<HttpResponse> {
+    console.log(id);
     const options = {
+      //url: '${resourceUri}/${id}',
       url: 'http://localhost:8000/api/Everywhereiam/1',
       headers: { 'Content-Type': 'application/json'}
     }
@@ -76,7 +79,6 @@ export class EverywhereIMMService {
    };
    this.route.navigate(['']);
     return Http.del(options);
-
 
   }
 

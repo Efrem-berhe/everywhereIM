@@ -26,8 +26,7 @@ class EverywhereIMController extends Controller
         $users_and_colors = [];
 
        foreach($users as $key => $user){
-            //$user = $user;
-            //$user_colors = $user->colors->get();
+
             $users_colors = array(
                         'user' => $user,
                         'user_color' => $user->colors()->get(),
@@ -83,9 +82,10 @@ class EverywhereIMController extends Controller
     public function update(Request $request, $id)
     {
         $color = Color::inRandomOrder()->first();
+        //$user = User::find($id);
         $user = User::get()->last();
         $user->colors()->attach($color);
-        $user_colors = $user->colors()->get();
+        $user_colors = $user->colors()->inRandomOrder()->get();
         return response()->json($user_colors,200);
     }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EverywhereIMMService, Users, Colors} from 'src/app/services/everywhere-imm.service';
+import { EverywhereIMMService, Users} from 'src/app/services/everywhere-imm.service';
 
 
 @Component({
@@ -10,7 +10,6 @@ import { EverywhereIMMService, Users, Colors} from 'src/app/services/everywhere-
 export class Tab2Page implements OnInit{
 
   users$: Users[] = [];
-  colors$: Colors[] [];
   userData$: [];
   constructor(private everywhereIM: EverywhereIMMService) {}
 
@@ -21,4 +20,5 @@ export class Tab2Page implements OnInit{
       console.log(this.userData$);
     });
   }
+
 }
